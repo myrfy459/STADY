@@ -10,11 +10,12 @@ import {
 
   const firebaseConfig = {
     apiKey: "AIzaSyDk4JUB7df-ASjWcDaWEZzouPkDnnBTgs0",
-    authDomain: "stady-login.firebaseapp.com",
-    projectId: "stady-login",
-    storageBucket: "stady-login.appspot.com",
-    messagingSenderId: "123456789012",
-    appId: "1:123456789012:web:abc123456def7890"
+    authDomain: "stady-8a218.firebaseapp.com",
+    projectId: "stady-8a218",
+    storageBucket: "stady-8a218.firebasestorage.app",
+    messagingSenderId: "131913800734",
+    appId: "1:131913800734:web:10af4c662f8e05a8be220f",
+    measurementId: "G-GKECZ4M0JX"
   };
   
 
@@ -26,15 +27,17 @@ const googleBtn = document.querySelector(".google-login");
 
 googleBtn.addEventListener("click", async () => {
   const provider = new GoogleAuthProvider();
+
   try {
-    const result = await signInWithPopup(auth, provider);
+    const result = await signInWithPopup(auth, provider);  // <-- popup harus terbuka segera setelah click
     const user = result.user;
-    alert("Login Google berhasil!");
+    alert("Login berhasil: " + user.email);
     window.location.href = "choice.html";
   } catch (error) {
-    alert("Gagal login Google: " + error.message);
+    alert("Login gagal: " + error.message);
   }
 });
+
 
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.querySelector("form");
