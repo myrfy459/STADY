@@ -29,7 +29,7 @@ googleBtn.addEventListener("click", async () => {
   const provider = new GoogleAuthProvider();
 
   try {
-    const result = await signInWithPopup(auth, provider);  // <-- popup harus terbuka segera setelah click
+    const result = await signInWithPopup(auth, provider); 
     const user = result.user;
     alert("Login berhasil: " + user.email);
     window.location.href = "choice.html";
@@ -37,6 +37,27 @@ googleBtn.addEventListener("click", async () => {
     alert("Login gagal: " + error.message);
   }
 });
+
+import { FacebookAuthProvider } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
+
+// Facebook Login
+const facebookBtn = document.querySelector(".facebook-login");
+
+facebookBtn.addEventListener("click", async () => {
+  const provider = new FacebookAuthProvider();
+
+  try {
+    const result = await signInWithPopup(auth, provider);
+    const user = result.user;
+    alert("Login Facebook berhasil: " + user.email);
+    window.location.href = "choice.html";
+  } catch (error) {
+    alert("Gagal login Facebook: " + error.message);
+    console.error(error);
+  }
+});
+
+
 
 
 document.addEventListener("DOMContentLoaded", function () {
